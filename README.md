@@ -12,17 +12,33 @@ Claude Code skill for FinLab quantitative trading package, specifically designed
 
 ## Installation
 
-### Add the Marketplace
+### Option 1: Claude Code
 
+1. Add the marketplace:
 ```bash
 /plugin marketplace add koreal6803/finlab-claude-plugin
 ```
 
-### Install the Plugin
-
+2. Install the plugin:
 ```bash
 /plugin install finlab-plugin@finlab-plugins
 ```
+
+### Option 2: ChatGPT Codex CLI
+
+1. Install ChatGPT Codex CLI (if not already installed)
+
+2. Clone this repository and navigate to it:
+```bash
+git clone https://github.com/koreal6803/finlab-claude-plugin.git
+cd finlab-claude-plugin
+```
+
+3. In ChatGPT Codex CLI, simply say:
+```
+請幫我安裝此finlab-plugin 裡的 skills
+```
+(Please help me install the skills in this finlab-plugin)
 
 ## Prerequisites
 
