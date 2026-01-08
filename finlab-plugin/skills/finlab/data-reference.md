@@ -248,6 +248,16 @@ The `fundamental_features` table contains 50+ calculated financial metrics:
 | `security_categories` | 台股證券分類 |
 | `security_industry_themes` | 產業題材 |
 
+**Stock ID to Name Mapping:**
+```python
+# company_basic_info 的 index 是流水號，需用 stock_id 欄位對應
+info = data.get("company_basic_info")
+name_map = dict(zip(info["stock_id"], info["公司簡稱"]))
+
+# 用法: name_map.get("2330") -> "台積電"
+df["股票名稱"] = df.index.map(lambda x: name_map.get(x, x))
+```
+
 ### Special Status
 
 | Table Name | Description | Usage |
