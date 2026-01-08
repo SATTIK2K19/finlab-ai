@@ -40,6 +40,26 @@ cd finlab-claude-plugin
 ```
 (Please help me install the skills in this finlab-plugin)
 
+### Option 3: Gemini CLI
+
+1. Install skill-porter:
+```bash
+npm install -g skill-porter
+```
+
+2. Clone this repository:
+```bash
+git clone https://github.com/koreal6803/finlab-claude-plugin.git
+cd finlab-claude-plugin
+```
+
+3. Convert the skill to Gemini extension:
+```bash
+skill-porter convert ./finlab-plugin/skills/finlab --to gemini --output ./finlab-gemini-extension
+```
+
+4. Follow Gemini CLI's extension installation instructions to install the generated `finlab-gemini-extension`.
+
 ## Prerequisites
 
 You need a FinLab API token to use this plugin. Get your token from: https://ai.finlab.tw/api_token/
