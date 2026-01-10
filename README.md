@@ -30,7 +30,7 @@ Just add this to your MCP config:
 {
   "mcpServers": {
     "finlab": {
-      "url": "https://finlab-mcp.finlab.workers.dev/mcp"
+      "url": "https://finlab-ai-plugin.koreal6803.workers.dev/mcp"
     }
   }
 }
@@ -120,7 +120,7 @@ Add to `~/.cursor/mcp.json`:
 {
   "mcpServers": {
     "finlab": {
-      "url": "https://finlab-mcp.finlab.workers.dev/mcp"
+      "url": "https://finlab-ai-plugin.koreal6803.workers.dev/mcp"
     }
   }
 }
@@ -137,7 +137,7 @@ Restart Cursor and start using FinLab documentation in your Agent.
 {
   "mcpServers": {
     "finlab": {
-      "url": "https://finlab-mcp.finlab.workers.dev/mcp"
+      "url": "https://finlab-ai-plugin.koreal6803.workers.dev/mcp"
     }
   }
 }
