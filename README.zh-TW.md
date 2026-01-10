@@ -13,12 +13,32 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai)
+[![Cursor](https://img.shields.io/badge/Cursor-MCP%20Server-blue)](https://cursor.com)
+[![Antigravity](https://img.shields.io/badge/Antigravity-MCP%20Server-green)](https://antigravity.google)
 
 <p align="center">
   <img src="assets/demo.gif" alt="Demo" width="700">
 </p>
 
-## 快速安裝（任何 AI CLI）
+## 快速安裝
+
+### Cursor / Antigravity IDE 用戶（最簡單！）
+
+只需加入以下設定到 MCP config：
+
+```json
+{
+  "mcpServers": {
+    "finlab": {
+      "url": "https://finlab-ai-plugin.koreal6803.workers.dev/mcp"
+    }
+  }
+}
+```
+
+免安裝 - MCP Server 已部署在雲端！
+
+### Claude Code / 其他 AI CLI 用戶
 
 只要告訴你的 AI 助手：
 
@@ -91,6 +111,51 @@ skill-porter convert ./finlab-plugin/skills/finlab --to gemini --output ./finlab
 ```
 
 然後依照 Gemini CLI 文件安裝 `finlab-gemini-extension`。
+
+### 方式四：Cursor IDE（MCP Server）
+
+加入到 `~/.cursor/mcp.json`：
+
+```json
+{
+  "mcpServers": {
+    "finlab": {
+      "url": "https://finlab-ai-plugin.koreal6803.workers.dev/mcp"
+    }
+  }
+}
+```
+
+重啟 Cursor 即可在 Agent 中使用 FinLab 文檔。
+
+### 方式五：Antigravity IDE（MCP Server）
+
+1. 開啟 Agent session → "..." → MCP Servers → Manage → View raw config
+2. 加入到 `mcp_config.json`：
+
+```json
+{
+  "mcpServers": {
+    "finlab": {
+      "url": "https://finlab-ai-plugin.koreal6803.workers.dev/mcp"
+    }
+  }
+}
+```
+
+### 方式六：本地 MCP Server（任何 MCP Client）
+
+```bash
+# Clone 並安裝
+git clone https://github.com/koreal6803/finlab-ai-plugin.git
+cd finlab-ai-plugin
+pip install -e .
+
+# 執行 MCP server
+python -m mcp_server
+```
+
+設定你的 MCP client 使用 stdio transport，指令為 `python -m mcp_server`。
 
 ## 前置需求
 
