@@ -40,6 +40,17 @@ eps = data.get('fundamental_features:每股盈餘')
 foreign_investment = data.get('institutional_investors_trading_summary:外陸資買賣超股數(不含外資自營商)')
 ```
 
+### Common Field Names
+
+| Term | Field |
+|------|-------|
+| EPS | `fundamental_features:每股稅後盈餘` |
+| 本益比 | `price_earning_ratio:本益比` |
+| 股價淨值比 | `price_earning_ratio:股價淨值比` |
+| ROE | `fundamental_features:ROE稅後` |
+| 月營收 | `monthly_revenue:當月營收` |
+| 營收年增率 | `monthly_revenue:去年同月增減(%)` |
+
 ---
 
 ## Data Discovery
