@@ -5,6 +5,18 @@
 
 import { DOCS } from './docs';
 
+interface Env {
+  FEEDBACK: KVNamespace;
+}
+
+interface Feedback {
+  id: string;
+  type: 'bug' | 'feature' | 'improvement' | 'other';
+  message: string;
+  context?: string;
+  timestamp: string;
+}
+
 interface McpRequest {
   jsonrpc: '2.0';
   id: string | number;
@@ -211,14 +223,63 @@ function handleMcpRequest(request: McpRequest): McpResponse {
 }
 
 export default {
-  async fetch(request: Request): Promise<Response> {
+  async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+    const corsHeaders = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    };
 
     // Health check
     if (url.pathname === '/health' || url.pathname === '/') {
       return new Response(JSON.stringify({ status: 'ok', server: 'finlab-mcp' }), {
         headers: { 'Content-Type': 'application/json' },
       });
+    }
+
+    // Feedback endpoint - POST to submit, GET to retrieve
+    if (url.pathname === '/feedback') {
+      if (request.method === 'POST') {
+        try {
+          const body = await request.json() as { type?: string; message: string; context?: string };
+          if (!body.message) {
+            return new Response(JSON.stringify({ error: 'message is required' }), {
+              status: 400,
+              headers: { 'Content-Type': 'application/json', ...corsHeaders },
+            });
+          }
+          const feedback: Feedback = {
+            id: crypto.randomUUID(),
+            type: (['bug', 'feature', 'improvement', 'other'].includes(body.type || '')
+              ? body.type : 'other') as Feedback['type'],
+            message: body.message,
+            context: body.context,
+            timestamp: new Date().toISOString(),
+          };
+          await env.FEEDBACK.put(`feedback:${feedback.id}`, JSON.stringify(feedback));
+          return new Response(JSON.stringify({ success: true, id: feedback.id }), {
+            headers: { 'Content-Type': 'application/json', ...corsHeaders },
+          });
+        } catch {
+          return new Response(JSON.stringify({ error: 'Invalid JSON' }), {
+            status: 400,
+            headers: { 'Content-Type': 'application/json', ...corsHeaders },
+          });
+        }
+      }
+      if (request.method === 'GET') {
+        const list = await env.FEEDBACK.list({ prefix: 'feedback:' });
+        const feedbacks: Feedback[] = [];
+        for (const key of list.keys) {
+          const val = await env.FEEDBACK.get(key.name);
+          if (val) feedbacks.push(JSON.parse(val));
+        }
+        feedbacks.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+        return new Response(JSON.stringify(feedbacks), {
+          headers: { 'Content-Type': 'application/json', ...corsHeaders },
+        });
+      }
     }
 
     // MCP endpoint
