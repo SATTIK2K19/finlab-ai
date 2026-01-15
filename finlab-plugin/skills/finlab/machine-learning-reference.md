@@ -147,7 +147,7 @@ print(combined_features.head())
 
 **Important Notes:**
 - `feature.combine` can handle misaligned indices and missing data automatically
-- Set `resample` to 'W', '2W', `data.get("monthly_revenue:當月營收").index`, `data.get("fundamental_feature:ROE稅後").deadline().index`, 'ME', 'QE', etc. to avoid excessive data points and high RAM consumption
+- Set `resample` to 'W', '2W', `data.get("monthly_revenue:當月營收").index`, `data.get("fundamental_features:ROE稅後").deadline().index`, 'ME', 'QE', etc. to avoid excessive data points and high RAM consumption
 - Use `sample_filter` parameter to filter unwanted data points (e.g., `sample_filter = data.get('price:成交股數') > 200_000`)
 
 ---

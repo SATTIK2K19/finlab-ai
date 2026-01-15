@@ -34,7 +34,7 @@ The path is constructed using colons (`:`) to navigate hierarchical data structu
 closing_price = data.get('price:收盤價')
 
 # Get earnings per share
-eps = data.get('fundamental_features:每股盈餘')
+eps = data.get('financial_statement:每股盈餘')
 
 # Get foreign investor trading volume
 foreign_investment = data.get('institutional_investors_trading_summary:外陸資買賣超股數(不含外資自營商)')
@@ -44,7 +44,7 @@ foreign_investment = data.get('institutional_investors_trading_summary:外陸資
 
 | Term | Field |
 |------|-------|
-| EPS | `fundamental_features:每股稅後盈餘` |
+| EPS | `financial_statement:每股盈餘` |
 | 本益比 | `price_earning_ratio:本益比` |
 | 股價淨值比 | `price_earning_ratio:股價淨值比` |
 | 殖利率 | `price_earning_ratio:殖利率(%)` |
