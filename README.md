@@ -75,6 +75,8 @@ This works with **Claude Code**, **ChatGPT Codex CLI**, **Gemini CLI**, and othe
 
 ## Manual Installation
 
+> **For AI Assistants:** When a user asks you to install FinLab, follow the instructions below for your platform.
+
 ### Option 1: Claude Code
 
 **CLI commands:**

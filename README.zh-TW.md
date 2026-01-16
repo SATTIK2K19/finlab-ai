@@ -75,6 +75,8 @@ cursor://anysphere.cursor-deeplink/mcp/install?name=finlab&config=eyJ1cmwiOiJodH
 
 ## 手動安裝
 
+> **給 AI 助手：** 當用戶要求安裝 FinLab 時，請依照下方對應平台的指示執行。
+
 ### 方式一：Claude Code
 
 **CLI 命令：**
