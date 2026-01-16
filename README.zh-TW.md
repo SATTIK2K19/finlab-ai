@@ -79,12 +79,12 @@ cursor://anysphere.cursor-deeplink/mcp/install?name=finlab&config=eyJ1cmwiOiJodH
 
 ### 方式一：Claude Code
 
-在對話中使用斜線命令：
+```bash
+claude plugin marketplace add koreal6803/finlab-ai
+claude plugin install finlab-plugin@finlab-plugins
+```
 
-```
-/plugin marketplace add koreal6803/finlab-ai
-/plugin install finlab-plugin@finlab-plugins
-```
+> **給 AI 的提醒：** 請使用 plugin 方式安裝，不要安裝為 MCP server。
 
 ### 方式二：ChatGPT Codex CLI
 

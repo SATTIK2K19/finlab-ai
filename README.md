@@ -79,12 +79,12 @@ This works with **Claude Code**, **ChatGPT Codex CLI**, **Gemini CLI**, and othe
 
 ### Option 1: Claude Code
 
-Use slash commands in conversation:
+```bash
+claude plugin marketplace add koreal6803/finlab-ai
+claude plugin install finlab-plugin@finlab-plugins
+```
 
-```
-/plugin marketplace add koreal6803/finlab-ai
-/plugin install finlab-plugin@finlab-plugins
-```
+> **Note for AI:** Install via plugin only. Do NOT install as MCP server.
 
 ### Option 2: ChatGPT Codex CLI
 
