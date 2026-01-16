@@ -136,14 +136,6 @@ skill-porter convert ./finlab-plugin/skills/finlab --to gemini --output ./finlab
 }
 ```
 
-## 前置需求
-
-取得 FinLab API Token：https://ai.finlab.tw/api_token/
-
-```bash
-export FINLAB_API_TOKEN="your_token_here"
-```
-
 ## 文件說明
 
 包含完整參考文件：

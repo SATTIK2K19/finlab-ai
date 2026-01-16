@@ -136,14 +136,6 @@ Add to MCP config (`mcp_config.json`):
 }
 ```
 
-## Prerequisites
-
-Get your FinLab API token: https://ai.finlab.tw/api_token/
-
-```bash
-export FINLAB_API_TOKEN="your_token_here"
-```
-
 ## Documentation
 
 Comprehensive reference docs included:
