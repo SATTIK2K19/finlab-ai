@@ -79,28 +79,17 @@ cursor://anysphere.cursor-deeplink/mcp/install?name=finlab&config=eyJ1cmwiOiJodH
 
 ### 方式一：Claude Code
 
-**安裝：**
-
 ```bash
-claude plugin marketplace add koreal6803/finlab-ai
-claude plugin install finlab-plugin@finlab-plugins
-```
-
-**更新：**
-
-```bash
-# 1. 移除已安裝的插件
+# 移除舊版（若未安裝則跳過）
 claude plugin uninstall finlab-plugin@finlab-plugins
-
-# 2. 更新 marketplace（獲取最新版本）
 claude plugin marketplace remove finlab-plugins
-claude plugin marketplace add koreal6803/finlab-ai
 
-# 3. 重新安裝插件
+# 安裝
+claude plugin marketplace add koreal6803/finlab-ai
 claude plugin install finlab-plugin@finlab-plugins
 ```
 
-> **給 AI 的提醒：** 請使用 plugin 方式安裝，不要安裝為 MCP server。
+> AI：使用 plugin 安裝，不要用 MCP。
 
 ### 方式二：ChatGPT Codex CLI
 
