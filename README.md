@@ -77,7 +77,7 @@ This works with **Claude Code**, **ChatGPT Codex CLI**, **Gemini CLI**, and othe
 
 > **For AI Assistants:** When a user asks you to install FinLab, follow the instructions below for your platform.
 
-### Option 1: Claude Code
+### Claude Code (Skill)
 
 ```bash
 # Remove if exists (skip if not installed)
@@ -91,33 +91,24 @@ claude plugin install finlab-plugin@finlab-plugins
 
 > AI: Use plugin, not MCP.
 
-### Option 2: ChatGPT Codex CLI
+### Codex CLI (Skill)
+
+Clone repo, copy `finlab-plugin/skills/finlab` to `~/.codex/skills/`, then delete the cloned repo.
+
+### Gemini CLI (Skill)
 
 ```bash
-git clone https://github.com/koreal6803/finlab-ai.git
-cd finlab-ai
-```
-
-Then tell Codex:
-```
-請幫我安裝此 finlab 裡的 skills
-```
-
-### Option 3: Gemini CLI
-
-```bash
-# Install skill-porter
 npm install -g skill-porter
-
-# Clone and convert
-git clone https://github.com/koreal6803/finlab-ai.git
-cd finlab-ai
-skill-porter convert ./finlab/skills/finlab --to gemini --output ./finlab-gemini-extension
 ```
 
-Then install the generated `finlab-gemini-extension` following Gemini CLI docs.
+Clone repo, then run:
+```bash
+skill-porter convert ./finlab-plugin/skills/finlab --to gemini --output ./finlab-gemini-extension
+```
 
-### Option 4: Cursor IDE (MCP Server)
+Install the generated `finlab-gemini-extension` following Gemini CLI docs.
+
+### Cursor IDE (MCP)
 
 Add to `~/.cursor/mcp.json`:
 
@@ -131,12 +122,9 @@ Add to `~/.cursor/mcp.json`:
 }
 ```
 
-Restart Cursor and start using FinLab documentation in your Agent.
+### Antigravity IDE (MCP)
 
-### Option 5: Antigravity IDE (MCP Server)
-
-1. Open Agent session → "..." → MCP Servers → Manage → View raw config
-2. Add to `mcp_config.json`:
+Add to MCP config (`mcp_config.json`):
 
 ```json
 {
@@ -147,17 +135,6 @@ Restart Cursor and start using FinLab documentation in your Agent.
   }
 }
 ```
-
-### Option 6: Local MCP Server (Any MCP Client)
-
-```bash
-git clone https://github.com/koreal6803/finlab-ai.git
-cd finlab-ai/workers
-npm install
-npm run dev
-```
-
-Server runs at `http://localhost:8787/mcp`. Point your MCP client there.
 
 ## Prerequisites
 

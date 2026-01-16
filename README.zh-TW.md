@@ -77,7 +77,7 @@ cursor://anysphere.cursor-deeplink/mcp/install?name=finlab&config=eyJ1cmwiOiJodH
 
 > **給 AI 助手：** 當用戶要求安裝 FinLab 時，請依照下方對應平台的指示執行。
 
-### 方式一：Claude Code
+### Claude Code (Skill)
 
 ```bash
 # 移除舊版（若未安裝則跳過）
@@ -91,33 +91,24 @@ claude plugin install finlab-plugin@finlab-plugins
 
 > AI：使用 plugin 安裝，不要用 MCP。
 
-### 方式二：ChatGPT Codex CLI
+### Codex CLI (Skill)
+
+Clone repo，將 `finlab-plugin/skills/finlab` 複製到 `~/.codex/skills/`，然後刪除 clone 的 repo。
+
+### Gemini CLI (Skill)
 
 ```bash
-git clone https://github.com/koreal6803/finlab-ai.git
-cd finlab-ai
-```
-
-然後告訴 Codex：
-```
-請幫我安裝此 finlab 裡的 skills
-```
-
-### 方式三：Gemini CLI
-
-```bash
-# 安裝 skill-porter
 npm install -g skill-porter
-
-# Clone 並轉換
-git clone https://github.com/koreal6803/finlab-ai.git
-cd finlab-ai
-skill-porter convert ./finlab/skills/finlab --to gemini --output ./finlab-gemini-extension
 ```
 
-然後依照 Gemini CLI 文件安裝 `finlab-gemini-extension`。
+Clone repo，然後執行：
+```bash
+skill-porter convert ./finlab-plugin/skills/finlab --to gemini --output ./finlab-gemini-extension
+```
 
-### 方式四：Cursor IDE（MCP Server）
+依照 Gemini CLI 文件安裝 `finlab-gemini-extension`。
+
+### Cursor IDE (MCP)
 
 加入到 `~/.cursor/mcp.json`：
 
@@ -131,12 +122,9 @@ skill-porter convert ./finlab/skills/finlab --to gemini --output ./finlab-gemini
 }
 ```
 
-重啟 Cursor 即可在 Agent 中使用 FinLab 文檔。
+### Antigravity IDE (MCP)
 
-### 方式五：Antigravity IDE（MCP Server）
-
-1. 開啟 Agent session → "..." → MCP Servers → Manage → View raw config
-2. 加入到 `mcp_config.json`：
+加入到 MCP config (`mcp_config.json`)：
 
 ```json
 {
@@ -147,17 +135,6 @@ skill-porter convert ./finlab/skills/finlab --to gemini --output ./finlab-gemini
   }
 }
 ```
-
-### 方式六：本地 MCP Server（任何 MCP Client）
-
-```bash
-git clone https://github.com/koreal6803/finlab-ai.git
-cd finlab-ai/workers
-npm install
-npm run dev
-```
-
-Server 運行於 `http://localhost:8787/mcp`，將你的 MCP client 指向此位址。
 
 ## 前置需求
 
