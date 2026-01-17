@@ -11,7 +11,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DOCS_DIR = join(__dirname, '..', 'finlab-plugin', 'skills', 'finlab');
 const OUTPUT_FILE = join(__dirname, 'src', 'docs.ts');
 
-const EXCLUDED_FILES = ['SKILL.md', 'README.md'];
+const EXCLUDED_FILES = ['README.md'];
 
 function loadDocuments() {
   const docs = {};
